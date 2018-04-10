@@ -60,7 +60,7 @@ bot.on("guildMemberAdd", (member) => {
     member.addRole(member.guild.roles.find("name", "Member"));
 })
 
-bot.on("message", async function(message) {
+bot.on("message", function(message) {
 
     if (message.author.equals(bot.user)) return;
 
