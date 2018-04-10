@@ -112,29 +112,7 @@ bot.on("message", async function(message) {
 
     const url = args[1] ? args[1].replace(/<(.+)>/g, '$1') : '';
     switch (args[0].toLowerCase()) {
-        case "unmute":
-        if (!message.member.roles.find("name", modrole)) {
-                    message.channel.send("You need the `" + modrole + "` role to do this command.");
-                return;
-                }
-        var member = message.mentions.members.first();
-        if (message.mentions.users.size < 1) return message.reply("You don't specify a user to unmute.")
-        if (reason.length < 1) return message.reply("You forget the reason.");
-        member.removeRole(rolemute)
-        message.channel.send("I mute him succefuly.")
-        break;
-        case "mute":
-        if (!message.member.roles.find("name", modrole)) {
-            message.channel.send("You need the `" + modrole + "` role to do this command.");
-        return;
-        }
-var member = message.mentions.members.first();
-if(!rolemute) return message.channel.send("I dont find a `Muted` role.")
-if (message.mentions.users.size < 1) return message.reply("You don't specify a user to mute.")
-if (reason.length < 1) return message.reply("You forget the reason.");
-member.addRole(rolemute)
-        break;
-        case "france":
+case "france":
         if (message.channel.id != "432286940092694538") return message.delete();
         if (message.member.roles.find("name", "France")) {
             member.removeRole(member.guild.roles.find("name", "France"))
@@ -254,6 +232,28 @@ member.addRole(rolemute)
             message.author.send("You got the Italia role.");
             message.react("✅")
             break;
+        case "unmute":
+        if (!message.member.roles.find("name", modrole)) {
+                    message.channel.send("You need the `" + modrole + "` role to do this command.");
+                return;
+                }
+        var member = message.mentions.members.first();
+        if (message.mentions.users.size < 1) return message.reply("You don't specify a user to unmute.")
+        if (reason.length < 1) return message.reply("You forget the reason.");
+        member.removeRole(rolemute)
+        message.channel.send("I mute him succefuly.")
+        break;
+        case "mute":
+        if (!message.member.roles.find("name", modrole)) {
+            message.channel.send("You need the `" + modrole + "` role to do this command.");
+        return;
+        }
+var member = message.mentions.members.first();
+if(!rolemute) return message.channel.send("I dont find a `Muted` role.")
+if (message.mentions.users.size < 1) return message.reply("You don't specify a user to mute.")
+if (reason.length < 1) return message.reply("You forget the reason.");
+member.addRole(rolemute)
+        break;
         case "help":
             member.send(`
 __***Commands on the bot.***__
